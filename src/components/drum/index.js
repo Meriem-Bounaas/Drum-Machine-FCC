@@ -23,9 +23,7 @@ const Drum = () =>{
 
     return(
         <>           
-            <div id="drum-machine" onKeyDown={(e)=>{
-                // console.log(e.key);
-            }}>
+            <div id="drum-machine">
                 <div className="box-pad">
                     {drumPadList}
                 </div>

@@ -24,21 +24,22 @@ const DrumPad = ({id, text, audioId, src, setTextTrigger, actif, tabIndex }) => 
      
 
     return (
-        <button className="drum-pad"  id={id}
-                                onClick={()=>{  
-                                        setTextTrigger(text)
-                                        playerRef.current.play()
-                                    }
-                                }
-                              
-                            >
-                                {audioId}  
-                                <audio 
-                                    className="clip"
-                                    id={audioId}
-                                    ref={playerRef}
-                                    src={src}                            
-                                />
+        <button className={`drum-pad ${actif? "actif-class":""}`}  
+                id={id}
+                onClick={()=>{  
+                    if (actif){
+                        setTextTrigger(text)
+                        playerRef.current.play()
+                    }
+                }}
+        >
+                {audioId}  
+                <audio 
+                    className="clip"
+                    id={audioId}
+                    ref={playerRef}
+                    src={src}                            
+                />
         </button>
     );
 }
